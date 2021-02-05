@@ -2,6 +2,10 @@
 
 This is a Java 8 project that implements the following [scenario](doc/scenario.md). All the information is stored in a [MySQL](https://www.mysql.com/) database using SpringData to manage it.
 
+## Database diagram
+
+![DB DIAGRAM](doc/img/diagram.jpg)
+
 ## Deployment
 
 Before deploy the application, is needed to has an available MySQL database, the most easy way is with [docker](https://www.docker.com/) executing the following command:
