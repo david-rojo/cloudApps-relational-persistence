@@ -1,12 +1,17 @@
 package com.cloudapps.persistencia_relacional.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import javax.validation.constraints.Size;
 
 @Entity
 public class Aeropuerto {
 
 	@Id
+	@Column(length = 3)
+    @Size(min = 3, max = 3)
 	private String codigoIATA;
 	
 	private String nombre;
