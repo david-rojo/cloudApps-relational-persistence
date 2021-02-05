@@ -52,9 +52,9 @@ public abstract class Employee {
 	@Override
 	public String toString() {
 		return "Employee{" +
-				"employeeCode='" + employeeCode + "'\'," +
-				"name='" + name + "'\'," +
-				"surnames='" + surnames + "'\'," +
+				"employeeCode='" + employeeCode + "'," +
+				"name='" + name + "'," +
+				"surnames='" + surnames + "'," +
 				'}';
 	}
 }

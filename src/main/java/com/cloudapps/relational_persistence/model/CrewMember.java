@@ -36,8 +36,8 @@ public class CrewMember extends Employee {
 	@Override
 	public String toString() {
 		return "CrewMember{" +
-				"position='" + position + "'\'," +
-				"company='" + company + "'\'," +
+				"position='" + position + "'," +
+				"company='" + company + "'," +
 				'}';
 	}	
 	

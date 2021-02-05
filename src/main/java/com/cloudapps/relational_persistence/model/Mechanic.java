@@ -11,6 +11,8 @@ public class Mechanic extends Employee {
 	
 	private String previousFormation;
 	
+	public Mechanic() {}
+	
 	public Mechanic(String employeeCode, String name, String surnames, String company, int incorporationYear,
 			String previousFormation) {
 		super(employeeCode, name, surnames);
@@ -46,8 +48,8 @@ public class Mechanic extends Employee {
 	@Override
 	public String toString() {
 		return "Mechanic{" +
-				"company='" + enterprise + "'\'," +
-				"previousFormation='" + previousFormation + "'\'," +
+				"company='" + enterprise + "'," +
+				"previousFormation='" + previousFormation + "'," +
 				"incorporationYear=" + incorporationYear + 
 				'}';
 	}
