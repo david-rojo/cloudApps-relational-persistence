@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>com.cloudapps</groupId>
-	<artifactId>persistencia_relacional</artifactId>
+	<artifactId>relational_persistence</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>persistencia_relacional</name>
-	<description>Practica 1 Persistencia Relacional</description>
+	<name>relational_persistence</name>
+	<description>Practice 1 Relational Persistence</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
