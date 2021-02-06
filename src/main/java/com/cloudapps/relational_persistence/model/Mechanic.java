@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="mechanic")
 public class Mechanic extends Employee {
 
 	private String enterprise;

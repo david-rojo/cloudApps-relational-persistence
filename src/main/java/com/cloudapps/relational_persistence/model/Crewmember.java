@@ -5,8 +5,10 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="crewmember")
 public class Crewmember extends Employee {
 	
 	private String position;
