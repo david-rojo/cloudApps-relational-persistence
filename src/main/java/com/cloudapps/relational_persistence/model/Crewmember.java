@@ -1,17 +1,24 @@
 package com.cloudapps.relational_persistence.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
-public class CrewMember extends Employee {
+public class Crewmember extends Employee {
 	
 	private String position;
 	
 	private String company;
 	
-	public CrewMember() {}
+	@OneToMany(mappedBy = "crewmember", cascade = CascadeType.ALL)
+    private List<FlightCrewmember> flights;
+	
+	public Crewmember() {}
 
-	public CrewMember(String employeeCode, String name, String surnames, String position, String company) {
+	public Crewmember(String employeeCode, String name, String surnames, String position, String company) {
 		super(employeeCode, name, surnames);
 		this.position = position;
 		this.company = company;
@@ -33,9 +40,17 @@ public class CrewMember extends Employee {
 		this.company = company;
 	}
 
+	public List<FlightCrewmember> getFlights() {
+		return flights;
+	}
+
+	public void setFlights(List<FlightCrewmember> flights) {
+		this.flights = flights;
+	}
+
 	@Override
 	public String toString() {
-		return "CrewMember{" +
+		return "Crewmember{" +
 				"position='" + position + "'," +
 				"company='" + company + "'," +
 				'}';

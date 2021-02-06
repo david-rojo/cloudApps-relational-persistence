@@ -1,6 +1,9 @@
 package com.cloudapps.relational_persistence.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Mechanic extends Employee {
@@ -10,6 +13,9 @@ public class Mechanic extends Employee {
 	private int incorporationYear;
 	
 	private String previousFormation;
+	
+	@OneToMany(mappedBy = "mechanic")
+	private List<Revision> revisions;
 	
 	public Mechanic() {}
 	
@@ -43,6 +49,14 @@ public class Mechanic extends Employee {
 
 	public void setPreviousFormation(String previousFormation) {
 		this.previousFormation = previousFormation;
+	}
+
+	public List<Revision> getRevisions() {
+		return revisions;
+	}
+
+	public void setRevisions(List<Revision> revisions) {
+		this.revisions = revisions;
 	}
 
 	@Override

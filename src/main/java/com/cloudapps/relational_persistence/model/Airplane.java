@@ -1,12 +1,23 @@
 package com.cloudapps.relational_persistence.model;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Airplane {
 
 	@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "airplane_id")
+    private Long id;
+	
+	@Column(length = 10, unique = true)
 	private String registrationCode;
 	
 	private String manufacturer;
@@ -15,8 +26,13 @@ public class Airplane {
 	
 	private long flownHours;
 	
+	@OneToMany(mappedBy = "revisedAirplane")
+	private List<Revision> revisions;
+	
+	@OneToMany(mappedBy = "airplane")
+	private List<Flight> flights;
+	
 	public Airplane() {}
-
 	
 	public Airplane(String registrationCode, String manufacturer, String model, long flownHours) {
 		super();
@@ -24,6 +40,14 @@ public class Airplane {
 		this.manufacturer = manufacturer;
 		this.model = model;
 		this.flownHours = flownHours;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getRegistrationCode() {
@@ -58,9 +82,26 @@ public class Airplane {
 		this.flownHours = flownHours;
 	}
 
+	public List<Revision> getRevisions() {
+		return revisions;
+	}
+
+	public void setRevisions(List<Revision> revisions) {
+		this.revisions = revisions;
+	}
+
+	public List<Flight> getFlights() {
+		return flights;
+	}
+
+	public void setFlights(List<Flight> flights) {
+		this.flights = flights;
+	}
+
 	@Override
 	public String toString() {
 		return "Airplane{" +
+				"id=" + id + "," +
 				"registrationCode='" + registrationCode + "'\'," +
 				"manufacturer='" + manufacturer + "'\'," +
 				"model='" + model + "'\'," +
