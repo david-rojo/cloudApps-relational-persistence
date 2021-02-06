@@ -6,41 +6,27 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
 import com.cloudapps.relational_persistence.model.Airplane;
 import com.cloudapps.relational_persistence.model.Airport;
 import com.cloudapps.relational_persistence.model.Crewmember;
-import com.cloudapps.relational_persistence.model.Employee;
 import com.cloudapps.relational_persistence.model.Flight;
 import com.cloudapps.relational_persistence.model.FlightCrewmember;
 import com.cloudapps.relational_persistence.model.Mechanic;
 import com.cloudapps.relational_persistence.model.Revision;
 import com.cloudapps.relational_persistence.repository.AiportRepository;
 import com.cloudapps.relational_persistence.repository.AirplaneRepository;
-import com.cloudapps.relational_persistence.repository.CrewMemberRepository;
 import com.cloudapps.relational_persistence.repository.EmployeeRepository;
 import com.cloudapps.relational_persistence.repository.FlightRepository;
-import com.cloudapps.relational_persistence.repository.MechanicRepository;
 import com.cloudapps.relational_persistence.repository.RevisionRepository;
 
-@Controller
-public class DatabaseLoader implements CommandLineRunner {
+@Component
+public class DatabaseLoader {
 
-	private Logger log = LoggerFactory.getLogger(DatabaseLoader.class);
-	
 	public static String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
-
-	@Autowired
-	private MechanicRepository mechanicRepository;
-
-	@Autowired
-	private CrewMemberRepository crewMemberRepository;
-
+	
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
@@ -55,47 +41,8 @@ public class DatabaseLoader implements CommandLineRunner {
 	
 	@Autowired
 	private FlightRepository flightRepository;
-
-	@Override
-	public void run(String... args) throws ParseException  {
-
-		populateDatabase();		
-		showDatabaseInfo();		
-		log.info("End of execution");
-	}
 	
-	private void showDatabaseInfo() {
-		
-		showCrewMembers();		
-		log.info("");
-		showMechanics();				
-	}
-
-	private void showCrewMembers() {
-		List<Crewmember> crew = crewMemberRepository.findAll();
-		log.info("Crew members:");
-		log.info("-------------");
-		for (int i=0; i<crew.size(); i++) {
-			log.info("Crew {}:", i);
-			log.info(crew.get(i).toString());
-			this.printEmployee(crew.get(i), i);
-			log.info("");
-		}
-	}
-
-	private void showMechanics() {
-		List<Mechanic> mechanics = mechanicRepository.findAll();
-		log.info("Mechanics:");
-		log.info("----------");
-		for (int i=0; i<mechanics.size(); i++) {
-			log.info("Mechanic {}:", i);
-			log.info(mechanics.get(i).toString());
-			this.printEmployee(mechanics.get(i), i);
-			log.info("");
-		}		
-	}
-
-	private void populateDatabase() throws ParseException {
+	public void load() throws ParseException {
 		
 		Crewmember lufthansaFlightAttendant = new Crewmember("1234567", "Laura", "Ruiz Herranz", "Flight Attendant", "Lufthansa");
 		Crewmember lufthansaPilot = new Crewmember("2345874", "Carmen", "Torres Navarro", "Pilot", "Lufthansa");
@@ -210,7 +157,7 @@ public class DatabaseLoader implements CommandLineRunner {
 				
 		revisionRepository.saveAll(Arrays.asList(qatarRevision1, qatarRevision2, lufthansaRevision1, lufthansaRevision2));
 		
-		flightRepository.saveAll(Arrays.asList(lufthansaFlight1, lufthansaFlight2, qatarFlight1, qatarFlight2));
+		flightRepository.saveAll(Arrays.asList(lufthansaFlight1, lufthansaFlight2, qatarFlight1, qatarFlight2));		
 	}
 	
 	private List<FlightCrewmember> getCrewFlight(Flight flight, Crewmember pilot,
@@ -222,11 +169,4 @@ public class DatabaseLoader implements CommandLineRunner {
 		crewFlight.addAll(Arrays.asList(f1c1,f1c2,f1c3));
 		return crewFlight;
 	}
-
-	private void printEmployee(Employee e, int index) {
-		log.info("employeeCode {}: {}", index, e.getEmployeeCode());
-		log.info("name {}: {}", index, e.getName());
-		log.info("surnames {}: {}", index, e.getSurnames());
-	}	
-
 }
