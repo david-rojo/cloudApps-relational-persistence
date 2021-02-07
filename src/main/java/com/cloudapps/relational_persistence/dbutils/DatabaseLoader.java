@@ -54,7 +54,8 @@ public class DatabaseLoader {
 
 		Mechanic airbusMechanic1 = new Mechanic("7654321", "Juan", "Luque Aguilar", "Airbus", 2015, "University Degree");
 		Mechanic airbusMechanic2 = new Mechanic("7651234", "Vicente", "Costero Bermejo", "Airbus", 2010, "Master Degree");
-		Mechanic boeingMechanic = new Mechanic("6648392", "Fernando", "Montesinos Moreno", "Boeing", 2018, "Master Degree");
+		Mechanic boeingMechanic1 = new Mechanic("6648392", "Fernando", "Montesinos Moreno", "Boeing", 2018, "Master Degree");
+		Mechanic boeingMechanic2 = new Mechanic("3456884", "Manuel", "Castillo Ortiz", "Boeing", 2017, "University Degree");
 		
 		Airplane lufthansaAirplane1 = new Airplane("D-AAAA", "Boeing", "747-8", 15000);
 		Airplane lufthansaAirplane2 = new Airplane("D-BBBB", "Boeing", "747-400", 20000);
@@ -77,10 +78,20 @@ public class DatabaseLoader {
 				"annual revision description",
 				qatarMainAirport);
 		
-		Revision qatarRevision2 = new Revision(
-				qatarAirplane1,
-				new SimpleDateFormat(DATE_FORMAT).parse("29/12/2020 12:00:00"),
-				new SimpleDateFormat(DATE_FORMAT).parse("30/12/2020 08:00:00"),
+//		Revision qatarRevision2 = new Revision(
+//				qatarAirplane1,
+//				new SimpleDateFormat(DATE_FORMAT).parse("29/12/2020 12:00:00"),
+//				new SimpleDateFormat(DATE_FORMAT).parse("30/12/2020 08:00:00"),
+//				20,
+//				airbusMechanic2,
+//				"monthly",
+//				"monthly revision description",
+//				qatarMainAirport);
+		
+		Revision qatarRevision3 = new Revision(
+				qatarAirplane2,
+				new SimpleDateFormat(DATE_FORMAT).parse("27/12/2020 10:00:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("28/12/2020 06:00:00"),
 				20,
 				airbusMechanic2,
 				"monthly",
@@ -92,20 +103,20 @@ public class DatabaseLoader {
 				new SimpleDateFormat(DATE_FORMAT).parse("28/12/2020 08:00:00"),
 				new SimpleDateFormat(DATE_FORMAT).parse("29/12/2020 04:00:00"),
 				20,
-				boeingMechanic,
+				boeingMechanic1,
 				"monthly",
 				"monthly revision description",
 				lufthansaMainAirport);
 		
 		Revision lufthansaRevision2 = new Revision(
-				qatarAirplane2,
-				new SimpleDateFormat(DATE_FORMAT).parse("27/12/2020 10:00:00"),
-				new SimpleDateFormat(DATE_FORMAT).parse("28/12/2020 06:00:00"),
+				lufthansaAirplane2,
+				new SimpleDateFormat(DATE_FORMAT).parse("21/12/2020 08:00:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("22/12/2020 04:00:00"),
 				20,
-				airbusMechanic2,
+				boeingMechanic2,
 				"monthly",
 				"monthly revision description",
-				qatarMainAirport);
+				lufthansaMainAirport);
 		
 		Flight lufthansaFlight1 = new Flight(
 				"LH950",
@@ -148,14 +159,15 @@ public class DatabaseLoader {
 		qatarFlight2.setCrew(getCrewFlight(qatarFlight2, qatarPilot, qatarCoPilot, qatarFlightAttendant));
 
 		employeeRepository.saveAll(Arrays.asList(
-				airbusMechanic1, airbusMechanic2, boeingMechanic));
+				airbusMechanic1, airbusMechanic2, boeingMechanic1, boeingMechanic2));
 		
 		airplaneRepository.saveAll(Arrays.asList(lufthansaAirplane1, lufthansaAirplane2, qatarAirplane1,qatarAirplane2));
 		
 		airportRepository.saveAll(Arrays.asList(lufthansaMainAirport, qatarMainAirport,
 				madridAirport, maleAirport, bangkokAirport));
 				
-		revisionRepository.saveAll(Arrays.asList(qatarRevision1, qatarRevision2, lufthansaRevision1, lufthansaRevision2));
+		revisionRepository.saveAll(Arrays.asList(qatarRevision1, /*qatarRevision2, */ qatarRevision3, lufthansaRevision1,
+				lufthansaRevision2));
 		
 		flightRepository.saveAll(Arrays.asList(lufthansaFlight1, lufthansaFlight2, qatarFlight1, qatarFlight2));		
 	}
