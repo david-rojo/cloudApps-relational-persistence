@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
 
+import com.cloudapps.relational_persistence.dbutils.DatabaseInfoPrinter;
 import com.cloudapps.relational_persistence.dbutils.DatabaseLoader;
-import com.cloudapps.relational_persistence.dbutils.DatabasePrinter;
+import com.cloudapps.relational_persistence.dbutils.DatabaseQueryPrinter;
 
 @Controller
 public class RelationalPersistenceController implements CommandLineRunner {
@@ -20,13 +21,17 @@ public class RelationalPersistenceController implements CommandLineRunner {
 	private DatabaseLoader databaseLoader;
 	
 	@Autowired
-	private DatabasePrinter databasePrinter;
+	private DatabaseInfoPrinter databaseInfoPrinter;
+	
+	@Autowired
+	private DatabaseQueryPrinter databaseQueryPrinter;
 
 	@Override
 	public void run(String... args) throws ParseException  {
 
 		databaseLoader.load();		
-		databasePrinter.print();
+		databaseInfoPrinter.print();
+		databaseQueryPrinter.print();
 		log.info("End of execution");
 	}	
 
