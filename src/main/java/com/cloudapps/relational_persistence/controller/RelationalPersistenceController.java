@@ -15,8 +15,6 @@ import com.cloudapps.relational_persistence.dbutils.DatabaseQueryPrinter;
 @Controller
 public class RelationalPersistenceController implements CommandLineRunner {
 
-	private Logger log = LoggerFactory.getLogger(RelationalPersistenceController.class);
-	
 	@Autowired
 	private DatabaseLoader databaseLoader;
 	
@@ -32,7 +30,6 @@ public class RelationalPersistenceController implements CommandLineRunner {
 		databaseLoader.load();		
 		databaseInfoPrinter.print();
 		databaseQueryPrinter.print();
-		log.info("End of execution");
 	}	
 
 }
