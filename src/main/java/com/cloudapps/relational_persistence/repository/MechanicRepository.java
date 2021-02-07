@@ -10,8 +10,9 @@ import com.cloudapps.relational_persistence.model.Mechanic;
 
 public interface MechanicRepository extends JpaRepository<Mechanic, Long> {
 
-	@Query("SELECT DISTINCT new com.cloudapps.relational_persistence.dto.MechanicPerAirplaneDTO" + 
-			"(r.revisedAirplane.registrationCode, m.name, m.surnames)" +
-            "FROM Mechanic m JOIN Revision r ON m.id = r.mechanic.id")
+	@Query("SELECT DISTINCT new com.cloudapps.relational_persistence.dto.MechanicPerAirplaneDTO" 
+			+ "(r.revisedAirplane.registrationCode, m.name, m.surnames)" 
+			+ "FROM Mechanic m "
+			+ "JOIN Revision r ON m.id = r.mechanic.id")
     List<MechanicPerAirplaneDTO> findMechanicsPerAirplane();
 }
