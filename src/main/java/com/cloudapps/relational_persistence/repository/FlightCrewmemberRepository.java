@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.cloudapps.relational_persistence.model.FlightCrewmember;
 
-public interface CrewMemberFlightRepository extends JpaRepository<FlightCrewmember, Long> {
+public interface FlightCrewmemberRepository extends JpaRepository<FlightCrewmember, Long> {
 
 }

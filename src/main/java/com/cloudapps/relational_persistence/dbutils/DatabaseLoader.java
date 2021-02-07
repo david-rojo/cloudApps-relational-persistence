@@ -1,4 +1,4 @@
-package com.cloudapps.relational_persistence.controller;
+package com.cloudapps.relational_persistence.dbutils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -162,6 +162,7 @@ public class DatabaseLoader {
 	
 	private List<FlightCrewmember> getCrewFlight(Flight flight, Crewmember pilot,
 			Crewmember coPilot, Crewmember flightAttendant) {
+		
 		List<FlightCrewmember> crewFlight = new ArrayList<>();
 		FlightCrewmember f1c1 = new FlightCrewmember(flight, pilot);
 		FlightCrewmember f1c2 = new FlightCrewmember(flight, coPilot);
