@@ -8,8 +8,8 @@ This is a Java 8 project that implements the following [scenario](doc/scenario.m
 
 Notes:
 
-* ```Mechanic``` and ```Crewmember``` extends from ```Employee```, because both have some attributes in common.
-* N:M relationship between ```Crewmember``` and ```Flight``` has been splitted in two 1:N relationships, using an intermediate table named ```fligth_crewmember``` that stores the relation having as columms:
+* ```Mechanic``` and ```Crewmember``` extends from ```Employee```, because both have some attributes in common. **Mapped Superclass** approach has been applied.
+* **N:M relationship** between ```Crewmember``` and ```Flight``` has been splitted in two 1:N relationships, using an intermediate table named ```fligth_crewmember``` that stores the relation having as columms:
   * *flight_id*: ID of the flight.
   * *employee_id*: ID of the mechanic.
 
