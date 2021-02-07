@@ -1,5 +1,7 @@
 package com.cloudapps.relational_persistence.dbutils;
 
+import static com.cloudapps.relational_persistence.configuration.Constants.DATE_FORMAT;
+
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -24,7 +26,7 @@ import com.cloudapps.relational_persistence.repository.RevisionRepository;
 @Component
 public class DatabaseInfoPrinter extends DatabasePrinter {
 
-	SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DatabaseLoader.DATE_FORMAT);  
+	private SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);  
 	
 	@Autowired
 	private AiportRepository airportRepository;

@@ -1,5 +1,7 @@
 package com.cloudapps.relational_persistence.dbutils;
 
+import static com.cloudapps.relational_persistence.configuration.Constants.DATE_FORMAT;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,8 +27,6 @@ import com.cloudapps.relational_persistence.repository.RevisionRepository;
 @Component
 public class DatabaseLoader {
 
-	public static String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
-	
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
@@ -37,10 +37,10 @@ public class DatabaseLoader {
 	private AirplaneRepository airplaneRepository;
 
 	@Autowired
-	private RevisionRepository revisionRepository;
+	private FlightRepository flightRepository;
 	
 	@Autowired
-	private FlightRepository flightRepository;
+	private RevisionRepository revisionRepository;
 	
 	public void load() throws ParseException {
 		
@@ -70,8 +70,8 @@ public class DatabaseLoader {
 		
 		Revision qatarRevision1 = new Revision(
 				qatarAirplane1,
-				new SimpleDateFormat(DATE_FORMAT).parse("21/12/2020 08:00:00"),
-				new SimpleDateFormat(DATE_FORMAT).parse("23/12/2020 10:00:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("21-12-2020 08:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("23-12-2020 10:00"),
 				50,
 				airbusMechanic1,
 				"annual",
@@ -80,8 +80,8 @@ public class DatabaseLoader {
 		
 //		Revision qatarRevision2 = new Revision(
 //				qatarAirplane1,
-//				new SimpleDateFormat(DATE_FORMAT).parse("29/12/2020 12:00:00"),
-//				new SimpleDateFormat(DATE_FORMAT).parse("30/12/2020 08:00:00"),
+//				new SimpleDateFormat(DATE_FORMAT).parse("29-12-2020 12:00"),
+//				new SimpleDateFormat(DATE_FORMAT).parse("30-12-2020 08:00"),
 //				20,
 //				airbusMechanic2,
 //				"monthly",
@@ -90,8 +90,8 @@ public class DatabaseLoader {
 		
 		Revision qatarRevision3 = new Revision(
 				qatarAirplane2,
-				new SimpleDateFormat(DATE_FORMAT).parse("27/12/2020 10:00:00"),
-				new SimpleDateFormat(DATE_FORMAT).parse("28/12/2020 06:00:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("27-12-2020 10:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("28-12-2020 06:00"),
 				20,
 				airbusMechanic2,
 				"monthly",
@@ -100,8 +100,8 @@ public class DatabaseLoader {
 		
 		Revision lufthansaRevision1 = new Revision(
 				lufthansaAirplane1,
-				new SimpleDateFormat(DATE_FORMAT).parse("28/12/2020 08:00:00"),
-				new SimpleDateFormat(DATE_FORMAT).parse("29/12/2020 04:00:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("28-12-2020 08:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("29-12-2020 04:00"),
 				20,
 				boeingMechanic1,
 				"monthly",
@@ -110,8 +110,8 @@ public class DatabaseLoader {
 		
 		Revision lufthansaRevision2 = new Revision(
 				lufthansaAirplane2,
-				new SimpleDateFormat(DATE_FORMAT).parse("21/12/2020 08:00:00"),
-				new SimpleDateFormat(DATE_FORMAT).parse("22/12/2020 04:00:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("21-12-2020 08:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("22-12-2020 04:00"),
 				20,
 				boeingMechanic2,
 				"monthly",
@@ -124,7 +124,7 @@ public class DatabaseLoader {
 				lufthansaAirplane1,
 				madridAirport,
 				lufthansaMainAirport,
-				new SimpleDateFormat(DATE_FORMAT).parse("01/11/2020 12:00:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("01-11-2020 12:00"),
 				2.5);
 		lufthansaFlight1.setCrew(getCrewFlight(lufthansaFlight1, lufthansaPilot, lufthansaCoPilot, lufthansaFlightAttendant));
 		
@@ -134,7 +134,7 @@ public class DatabaseLoader {
 				lufthansaAirplane2,
 				lufthansaMainAirport,
 				bangkokAirport,
-				new SimpleDateFormat(DATE_FORMAT).parse("01/11/2020 20:00:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("01-11-2020 20:00"),
 				12);
 		lufthansaFlight2.setCrew(getCrewFlight(lufthansaFlight2, lufthansaPilot, lufthansaCoPilot, lufthansaFlightAttendant));
 		
@@ -144,7 +144,7 @@ public class DatabaseLoader {
 				qatarAirplane1,
 				madridAirport,
 				qatarMainAirport,
-				new SimpleDateFormat(DATE_FORMAT).parse("05/11/2020 01:00:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("05-11-2020 01:00"),
 				7);
 		qatarFlight1.setCrew(getCrewFlight(qatarFlight1, qatarPilot, qatarCoPilot, qatarFlightAttendant));
 		
@@ -154,9 +154,19 @@ public class DatabaseLoader {
 				qatarAirplane2,
 				qatarMainAirport,
 				maleAirport,
-				new SimpleDateFormat(DATE_FORMAT).parse("05/11/2020 15:00:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("05-11-2020 15:00"),
 				5);
 		qatarFlight2.setCrew(getCrewFlight(qatarFlight2, qatarPilot, qatarCoPilot, qatarFlightAttendant));
+		
+		Flight qatarFlight3 = new Flight(
+				"QR836",
+				"Qatar Airways",
+				qatarAirplane2,
+				qatarMainAirport,
+				bangkokAirport,
+				new SimpleDateFormat(DATE_FORMAT).parse("01-11-2020 05:00"),
+				6.1);
+		qatarFlight3.setCrew(getCrewFlight(qatarFlight3, qatarPilot, qatarCoPilot, qatarFlightAttendant));
 
 		employeeRepository.saveAll(Arrays.asList(
 				airbusMechanic1, airbusMechanic2, boeingMechanic1, boeingMechanic2));
@@ -169,7 +179,7 @@ public class DatabaseLoader {
 		revisionRepository.saveAll(Arrays.asList(qatarRevision1, /*qatarRevision2, */ qatarRevision3, lufthansaRevision1,
 				lufthansaRevision2));
 		
-		flightRepository.saveAll(Arrays.asList(lufthansaFlight1, lufthansaFlight2, qatarFlight1, qatarFlight2));		
+		flightRepository.saveAll(Arrays.asList(lufthansaFlight1, lufthansaFlight2, qatarFlight1, qatarFlight2, qatarFlight3));		
 	}
 	
 	private List<FlightCrewmember> getCrewFlight(Flight flight, Crewmember pilot,
