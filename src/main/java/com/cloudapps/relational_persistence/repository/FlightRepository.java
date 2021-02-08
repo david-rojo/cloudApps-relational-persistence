@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.cloudapps.relational_persistence.dto.FlightsByArrivalAndDateDTO;
-import com.cloudapps.relational_persistence.dto.FlightStatisticsFromCrewmemberDTO;
 import com.cloudapps.relational_persistence.model.Flight;
 
 public interface FlightRepository extends JpaRepository<Flight, Long> {
@@ -23,13 +22,5 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     List<FlightsByArrivalAndDateDTO> findFlightsByArrivalAndDate(
     		@Param("arrivalCity") String arrivalCity,
     		@Param("requestDate") String requestDate);
-	
-    @Query("SELECT new com.cloudapps.relational_persistence.dto.FlightStatisticsFromCrewmemberDTO"
-    		+ "(c.name, c.surnames, COUNT(f.id), SUM(f.duration))"
-    		+ " FROM Crewmember c"
-    		+ " JOIN FlightCrewmember fc ON c.id = fc.id.crewmemberId"
-    		+ " JOIN Flight f ON fc.id.flightId = f.id"
-    		+ " GROUP BY c.name, c.surnames")
-    List<FlightStatisticsFromCrewmemberDTO> findFlightStatistics();
 	
 }
