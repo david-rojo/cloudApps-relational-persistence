@@ -1,5 +1,11 @@
 package com.cloudapps.relational_persistence.dto;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 public class MechanicPerAirplaneDTO {
 	
 	private String registrationCode;

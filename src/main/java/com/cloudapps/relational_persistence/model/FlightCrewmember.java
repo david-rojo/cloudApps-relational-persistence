@@ -6,6 +6,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 @Entity
 @Table(name="flight_crewmember")
 public class FlightCrewmember {

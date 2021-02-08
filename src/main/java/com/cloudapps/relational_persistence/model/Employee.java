@@ -9,6 +9,12 @@ import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Size;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Employee {

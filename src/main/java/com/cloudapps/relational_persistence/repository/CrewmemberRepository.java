@@ -10,6 +10,12 @@ import com.cloudapps.relational_persistence.dto.DepartureCitiesAndDateFromEmploy
 import com.cloudapps.relational_persistence.dto.FlightStatisticsFromCrewmemberDTO;
 import com.cloudapps.relational_persistence.model.Crewmember;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 public interface CrewmemberRepository extends JpaRepository<Crewmember, Long> {
 
 	@Query("SELECT new com.cloudapps.relational_persistence.dto.DepartureCitiesAndDateFromEmployeeDTO"

@@ -13,6 +13,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 @Entity
 @Table(name="revision")
 public class Revision {

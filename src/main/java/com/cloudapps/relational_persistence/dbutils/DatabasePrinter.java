@@ -1,5 +1,11 @@
 package com.cloudapps.relational_persistence.dbutils;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 public abstract class DatabasePrinter {
 
 	protected void printTitle(String title) {

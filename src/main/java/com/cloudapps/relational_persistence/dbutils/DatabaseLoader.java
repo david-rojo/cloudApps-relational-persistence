@@ -24,6 +24,12 @@ import com.cloudapps.relational_persistence.repository.EmployeeRepository;
 import com.cloudapps.relational_persistence.repository.FlightRepository;
 import com.cloudapps.relational_persistence.repository.RevisionRepository;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 @Component
 public class DatabaseLoader {
 

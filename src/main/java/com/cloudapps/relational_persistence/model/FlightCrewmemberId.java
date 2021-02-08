@@ -4,6 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 @Embeddable
 public class FlightCrewmemberId implements Serializable {
 	

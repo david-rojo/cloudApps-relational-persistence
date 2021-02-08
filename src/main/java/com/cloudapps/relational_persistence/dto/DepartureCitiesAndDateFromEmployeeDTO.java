@@ -5,6 +5,12 @@ import static com.cloudapps.relational_persistence.configuration.Constants.DATE_
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 public class DepartureCitiesAndDateFromEmployeeDTO {
 	
 	private String name;

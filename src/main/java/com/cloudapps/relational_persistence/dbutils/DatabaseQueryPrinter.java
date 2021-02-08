@@ -15,6 +15,12 @@ import com.cloudapps.relational_persistence.repository.CrewmemberRepository;
 import com.cloudapps.relational_persistence.repository.FlightRepository;
 import com.cloudapps.relational_persistence.repository.MechanicRepository;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 @Component
 public class DatabaseQueryPrinter extends DatabasePrinter {
 

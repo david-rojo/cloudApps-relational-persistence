@@ -9,6 +9,12 @@ import org.springframework.data.repository.query.Param;
 import com.cloudapps.relational_persistence.dto.FlightsByArrivalAndDateDTO;
 import com.cloudapps.relational_persistence.model.Flight;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
 	@Query("SELECT new com.cloudapps.relational_persistence.dto.FlightsByArrivalAndDateDTO"

@@ -10,6 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 @Entity
 @Table(name="airplane")
 public class Airplane {

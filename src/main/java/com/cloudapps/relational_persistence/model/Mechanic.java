@@ -6,6 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 @Entity
 @Table(name="mechanic")
 public class Mechanic extends Employee {

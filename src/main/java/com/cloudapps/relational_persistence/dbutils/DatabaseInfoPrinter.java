@@ -20,6 +20,12 @@ import com.cloudapps.relational_persistence.repository.FlightRepository;
 import com.cloudapps.relational_persistence.repository.MechanicRepository;
 import com.cloudapps.relational_persistence.repository.RevisionRepository;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 @Component
 public class DatabaseInfoPrinter extends DatabasePrinter {  
 	

@@ -10,6 +10,12 @@ import com.cloudapps.relational_persistence.dbutils.DatabaseInfoPrinter;
 import com.cloudapps.relational_persistence.dbutils.DatabaseLoader;
 import com.cloudapps.relational_persistence.dbutils.DatabaseQueryPrinter;
 
+/**
+ * 
+ * @author David Rojo Antona
+ *
+ */
+
 @Controller
 public class RelationalPersistenceController implements CommandLineRunner {
 
