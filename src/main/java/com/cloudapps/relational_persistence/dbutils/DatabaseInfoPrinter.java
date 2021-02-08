@@ -207,7 +207,6 @@ public class DatabaseInfoPrinter extends DatabasePrinter {
 			System.out.println("\tcrewmember_employee_id: " + flightCrewmemberRelation.getCrewmember().getId());
 			System.out.println();
 		}
-		super.printSeparator();
 	}
 	
 	private void printNumberOfRows(int rows) {

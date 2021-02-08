@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cloudapps.relational_persistence.dto.DepartureCitiesAndDateFromEmployeeDTO;
+import com.cloudapps.relational_persistence.dto.FlightStatisticsFromCrewmemberDTO;
 import com.cloudapps.relational_persistence.dto.FlightsByArrivalAndDateDTO;
 import com.cloudapps.relational_persistence.dto.MechanicPerAirplaneDTO;
 import com.cloudapps.relational_persistence.repository.CrewmemberRepository;
@@ -29,13 +30,15 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 		super.printTitle("REQUESTED QUERIES RESULT");
 		this.printQuery1();
 		this.printQuery2();
-		this.printQuery3();		
+		this.printQuery3();
+		this.printQuery4();		
 	}
 
 	private void printQuery1() {
 
 		this.printQueryTitle(1);
 		this.printQueryDescription("Per each plane, show name and surnames of the mechanics responsible of its revisions.");
+
 		List<MechanicPerAirplaneDTO> mechanicsPerAirplaneResult = mechanicRepository.findMechanicsPerAirplane();
 		this.printResultTitle(mechanicsPerAirplaneResult.size());
 		for (int i=0; i<mechanicsPerAirplaneResult.size(); i++) {
@@ -88,8 +91,25 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 			System.out.println(departureCitiesAndDateFromEmployeeResult.get(i));
 			System.out.println();
 		}
-		super.printSeparator();		
+		super.printSeparator();
 		
+	}
+	
+	private void printQuery4() {
+
+		this.printQueryTitle(4);
+		this.printQueryDescription("For each crew member, show his name and surnames with its total number of flights "
+				+ "and the sum of hours of these flights.");
+		
+		List<FlightStatisticsFromCrewmemberDTO> flightStatisticsFromCrewmemberResult = crewmemberRepository
+				.findFlightStatistics();
+		this.printResultTitle(flightStatisticsFromCrewmemberResult.size());
+		for (int i=0; i<flightStatisticsFromCrewmemberResult.size(); i++) {
+			System.out.println("Element " + i);
+			System.out.println(flightStatisticsFromCrewmemberResult.get(i));
+			System.out.println();
+		}
+
 	}
 	
 	private void printQueryTitle(int order) {

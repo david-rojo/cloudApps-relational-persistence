@@ -11,6 +11,7 @@ public class MechanicPerAirplaneDTO {
 	public MechanicPerAirplaneDTO() {}
 
 	public MechanicPerAirplaneDTO(String registrationCode, String name, String surnames) {
+		
 		super();
 		this.registrationCode = registrationCode;
 		this.name = name;
@@ -43,6 +44,7 @@ public class MechanicPerAirplaneDTO {
 	
 	@Override
 	public String toString() {
+
 		return "\tregistrationCode: " + registrationCode + "\n" +
 				"\tname: " + name + "\n" +
 				"\tsurnames: " + surnames;
