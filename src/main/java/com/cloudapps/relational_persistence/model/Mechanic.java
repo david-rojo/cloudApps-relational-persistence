@@ -63,11 +63,14 @@ public class Mechanic extends Employee {
 
 	@Override
 	public String toString() {
-		return "Mechanic{" +
-				"company='" + enterprise + "'," +
-				"previousFormation='" + previousFormation + "'," +
-				"incorporationYear=" + incorporationYear + 
-				'}';
+		
+		return "\temployee_id: " + this.getId() + "\n" +
+				"\temployee_code: " + this.getEmployeeCode() + "\n" +
+				"\tname: " + this.getName() + "\n" +
+				"\tsurnames: " + this.getSurnames() + "\n" +
+				"\tenterprise: " + enterprise + "\n" +
+				"\tincorporation_year: " + incorporationYear + "\n" +
+				"\tprevious_formation: " + previousFormation;
 	}
 	
 }

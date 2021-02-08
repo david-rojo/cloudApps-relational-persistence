@@ -67,13 +67,4 @@ public abstract class Employee {
 		this.surnames = surnames;
 	}
 
-	@Override
-	public String toString() {
-		return "Employee{" +
-				"id=" + id + "," +
-				"employeeCode='" + employeeCode + "'," +
-				"name='" + name + "'," +
-				"surnames='" + surnames + "'," +
-				'}';
-	}
 }

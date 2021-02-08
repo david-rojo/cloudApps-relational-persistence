@@ -52,10 +52,13 @@ public class Crewmember extends Employee {
 
 	@Override
 	public String toString() {
-		return "Crewmember{" +
-				"position='" + position + "'," +
-				"company='" + company + "'," +
-				'}';
+		
+		return "\temployee_id: " + this.getId() + "\n" +
+				"\temployee_code: " + this.getName() + "\n" +
+				"\tname: " + this.getName() + "\n" +
+				"\tsurnames: " + this.getSurnames() + "\n" +
+				"\tcompany: " + company + "\n" +
+				"\tposition: " + position;
 	}	
 	
 }

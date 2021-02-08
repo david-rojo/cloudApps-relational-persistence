@@ -102,13 +102,12 @@ public class Airplane {
 
 	@Override
 	public String toString() {
-		return "Airplane{" +
-				"id=" + id + "," +
-				"registrationCode='" + registrationCode + "'\'," +
-				"manufacturer='" + manufacturer + "'\'," +
-				"model='" + model + "'\'," +
-				"flownHours=" + flownHours + 
-				'}';
+		
+		return "\tairplane_id: " + id + "\n" +
+				"\tregistration_code: " + registrationCode + "\n" +
+				"\tmanufacturer: " + manufacturer + "\n" +
+				"\tmodel: " + model + "\n" +
+				"\tflown_hours: " + flownHours;
 	}
 
 }

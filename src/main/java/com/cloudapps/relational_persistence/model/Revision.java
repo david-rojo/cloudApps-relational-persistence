@@ -1,5 +1,8 @@
 package com.cloudapps.relational_persistence.model;
 
+import static com.cloudapps.relational_persistence.configuration.Constants.DATE_FORMAT;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -130,14 +133,17 @@ public class Revision {
 
 	@Override
 	public String toString() {
-		return "Revision{" +
-				"id=" + id + "," +
-				"startDate='" + startDate + "'\'," +
-				"endDate='" + endDate + "'\'," +
-				"revisionType='" + revisionType + "'\'," +
-				"spentHours=" + spentHours + 
-				"description='" + description + "'\'," +
-				'}';
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
+		return "\tid: " + id + "\n" +
+				"\trevision_type: " + revisionType + "\n" +
+				"\tdescription: " + description + "\n" +
+				"\tstart_date: " + simpleDateFormat.format(startDate)+ "\n" +
+				"\tend_date: " + simpleDateFormat.format(endDate)+ "\n" +
+				"\tspent_hours: " + spentHours + "\n" +
+				"\temployee_id: " + mechanic.getId()+ "\n" +
+				"\tairplane_id: " + revisedAirplane.getId()+ "\n" +
+				"\tairport_id: " + revisionAirport.getId();
 	}
 
 }

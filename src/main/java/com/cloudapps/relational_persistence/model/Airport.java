@@ -115,13 +115,12 @@ public class Airport {
 
 	@Override
 	public String toString() {
-		return "Airport{" +
-				"id=" + id + "," +
-				"iataCode='" + iataCode + "'\'," +
-				"name='" + name + "'\'," +
-				"city='" + city + "'\'," +
-				"country='" + country + "'\'" + 
-				'}';
+		
+		return "\tairport_id: " + id + "\n" +
+				"\tiata_code: " + iataCode + "\n" +
+				"\tname: " + name + "\n" +
+				"\tcity: " + city + "\n" +
+				"\tcountry: " + country;
 	}
 	
 }

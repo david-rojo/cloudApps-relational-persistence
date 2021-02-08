@@ -1,5 +1,8 @@
 package com.cloudapps.relational_persistence.model;
 
+import static com.cloudapps.relational_persistence.configuration.Constants.DATE_FORMAT;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -138,13 +141,15 @@ public class Flight {
 
 	@Override
 	public String toString() {
-		return "Flight{" +
-				"id=" + id + "," +
-				"flightCode='" + flightCode + "'\'," +
-				"company='" + company + "'\'," +
-				"departureDateTime='" + departureDateTime + "'\'," +
-				"duration=" + duration + 
-				'}';
+		
+		return "\tflight_id: " + id + "\n" +
+			"\tflight_code: " + flightCode + "\n" + 
+			"\tcompany: " + company + "\n" +
+			"\tdeparture_date_time: " + new SimpleDateFormat(DATE_FORMAT).format(departureDateTime) + "\n" +
+			"\tduration: " + duration + "\n" +
+			"\tairplane_id: " + airplane.getId() + "\n" +
+			"\tdeparture_aiport_id: " + departure.getId() + "\n" +
+			"\tarrival_aiport_id: " + arrival.getId();
 	}
 	
 }
