@@ -20,3 +20,21 @@ Before deploy the application, is needed to has an available MySQL database, the
 ```
 $ docker run --rm -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=test -p 3306:3306 -d --name relational-persistence mysql/mysql-server:8.0.23
 ```
+
+Or you can just execute the provided [start-mysql-container.sh](start-mysql-container.sh) script with the command:
+
+```
+$ ./start-mysql-container.sh
+```
+
+Once MySQL instance is up and running, to show the database stored information and the result of the requested queries execute:
+
+```
+$ mvn spring-boot:run
+```
+
+Note: *spring.jpa.hibernate.ddl-auto* property has as value ```create``` so every time that the application will be executed, the information will be stored in the information and it will be available once the execution will be finished. 
+
+## Author
+
+[David Rojo (@david-rojo)](https://github.com/david-rojo)
