@@ -78,15 +78,15 @@ public class DatabaseLoader {
 				"annual revision description",
 				qatarMainAirport);
 		
-//		Revision qatarRevision2 = new Revision(
-//				qatarAirplane1,
-//				new SimpleDateFormat(DATE_FORMAT).parse("29-12-2020 12:00"),
-//				new SimpleDateFormat(DATE_FORMAT).parse("30-12-2020 08:00"),
-//				20,
-//				airbusMechanic2,
-//				"monthly",
-//				"monthly revision description",
-//				qatarMainAirport);
+		Revision qatarRevision2 = new Revision(
+				qatarAirplane1,
+				new SimpleDateFormat(DATE_FORMAT).parse("29-12-2020 12:00"),
+				new SimpleDateFormat(DATE_FORMAT).parse("30-12-2020 08:00"),
+				20,
+				airbusMechanic2,
+				"monthly",
+				"monthly revision description",
+				qatarMainAirport);
 		
 		Revision qatarRevision3 = new Revision(
 				qatarAirplane2,
@@ -176,7 +176,7 @@ public class DatabaseLoader {
 		airportRepository.saveAll(Arrays.asList(lufthansaMainAirport, qatarMainAirport,
 				madridAirport, maleAirport, bangkokAirport));
 				
-		revisionRepository.saveAll(Arrays.asList(qatarRevision1, /*qatarRevision2, */ qatarRevision3, lufthansaRevision1,
+		revisionRepository.saveAll(Arrays.asList(qatarRevision1, qatarRevision2, qatarRevision3, lufthansaRevision1,
 				lufthansaRevision2));
 		
 		flightRepository.saveAll(Arrays.asList(lufthansaFlight1, lufthansaFlight2, qatarFlight1, qatarFlight2, qatarFlight3));		

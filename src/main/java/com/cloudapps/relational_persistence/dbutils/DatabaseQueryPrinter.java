@@ -1,6 +1,8 @@
 package com.cloudapps.relational_persistence.dbutils;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -40,10 +42,17 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 		this.printQueryDescription("Per each plane, show name and surnames of the mechanics responsible of its revisions.");
 
 		List<MechanicPerAirplaneDTO> mechanicsPerAirplaneResult = mechanicRepository.findMechanicsPerAirplane();
-		this.printResultTitle(mechanicsPerAirplaneResult.size());
-		for (int i=0; i<mechanicsPerAirplaneResult.size(); i++) {
-			System.out.println("Element " + i);
-			System.out.println(mechanicsPerAirplaneResult.get(i));
+		
+		//Delete repeated elements, because I don't have found the way to do it with only query
+		HashMap<String,MechanicPerAirplaneDTO> deleteRepeatedElements = new HashMap<>();
+		mechanicsPerAirplaneResult.forEach(element -> deleteRepeatedElements.put(element.getRegistrationCode(), element));
+		
+		this.printResultTitle(deleteRepeatedElements.size());
+		
+		int i = 0;		
+		for (Map.Entry < String, MechanicPerAirplaneDTO > entry: deleteRepeatedElements.entrySet()) {
+			System.out.println("Element " + i + ":");
+			System.out.println(entry.getValue());
 			System.out.println();
 		}
 		super.printSeparator();		
@@ -66,7 +75,7 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 				requestDate);
 		this.printResultTitle(flightsByArrivalAndDateResult.size());
 		for (int i=0; i<flightsByArrivalAndDateResult.size(); i++) {
-			System.out.println("Element " + i);
+			System.out.println("Element " + i + ":");
 			System.out.println(flightsByArrivalAndDateResult.get(i));
 			System.out.println();
 		}
@@ -87,7 +96,7 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 				.findDepartureCitiesAndDateByEmployeeCode(employeeCode);
 		this.printResultTitle(departureCitiesAndDateFromEmployeeResult.size());
 		for (int i=0; i<departureCitiesAndDateFromEmployeeResult.size(); i++) {
-			System.out.println("Element " + i);
+			System.out.println("Element " + i + ":");
 			System.out.println(departureCitiesAndDateFromEmployeeResult.get(i));
 			System.out.println();
 		}
@@ -105,7 +114,7 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 				.findFlightStatistics();
 		this.printResultTitle(flightStatisticsFromCrewmemberResult.size());
 		for (int i=0; i<flightStatisticsFromCrewmemberResult.size(); i++) {
-			System.out.println("Element " + i);
+			System.out.println("Element " + i + ":");
 			System.out.println(flightStatisticsFromCrewmemberResult.get(i));
 			System.out.println();
 		}

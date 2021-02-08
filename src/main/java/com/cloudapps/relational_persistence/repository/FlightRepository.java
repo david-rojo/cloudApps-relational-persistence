@@ -18,7 +18,7 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
 			+ " JOIN Airport a ON f.arrival.id = a.id"
 			+ " WHERE a.city LIKE :arrivalCity"
             	+ " AND FUNCTION('date_format', f.departureDateTime, '%d-%m-%Y') = :requestDate"
-            + " ORDER BY FUNCTION('date_format', f.departureDateTime, '%H')")
+            + " ORDER BY f.departureDateTime ASC")
     List<FlightsByArrivalAndDateDTO> findFlightsByArrivalAndDate(
     		@Param("arrivalCity") String arrivalCity,
     		@Param("requestDate") String requestDate);
