@@ -1,9 +1,9 @@
-package com.cloudapps.relational_persistence.dbutils;
+package com.cloudapps.relational_persistence.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.cloudapps.relational_persistence.model.Airplane;
 import com.cloudapps.relational_persistence.model.Airport;
@@ -26,7 +26,7 @@ import com.cloudapps.relational_persistence.repository.RevisionRepository;
  *
  */
 
-@Component
+@Service
 public class DatabaseInfoPrinter extends DatabasePrinter {  
 	
 	@Autowired
@@ -53,7 +53,7 @@ public class DatabaseInfoPrinter extends DatabasePrinter {
 	public void print() {
 
 		this.printLogo();
-		super.printTitle("INFORMATION STORED IN DB");
+		this.printTitle("INFORMATION STORED IN DB");
 		this.printAirport();
 		this.printAirplane();
 		this.printMechanic();
@@ -75,7 +75,7 @@ public class DatabaseInfoPrinter extends DatabasePrinter {
 			System.out.println(airport);
 			System.out.println();
 		}
-		super.printSeparator();
+		this.printSeparator();
 	}
 	
 	private void printAirplane() {
@@ -90,7 +90,7 @@ public class DatabaseInfoPrinter extends DatabasePrinter {
 			System.out.println(airplane);
 			System.out.println();
 		}
-		super.printSeparator();
+		this.printSeparator();
 	}
 	
 	private void printCrewmember() {
@@ -105,7 +105,7 @@ public class DatabaseInfoPrinter extends DatabasePrinter {
 			System.out.println(crewmember);
 			System.out.println();
 		}
-		super.printSeparator();
+		this.printSeparator();
 	}
 	
 	private void printMechanic() {
@@ -120,7 +120,7 @@ public class DatabaseInfoPrinter extends DatabasePrinter {
 			System.out.println(mechanic);
 			System.out.println();
 		}
-		super.printSeparator();
+		this.printSeparator();
 	}
 	
 	private void printRevision() {
@@ -135,7 +135,7 @@ public class DatabaseInfoPrinter extends DatabasePrinter {
 			System.out.println(revision);
 			System.out.println();
 		}
-		super.printSeparator();
+		this.printSeparator();
 	}
 	
 	private void printFlight() {
@@ -150,7 +150,7 @@ public class DatabaseInfoPrinter extends DatabasePrinter {
 			System.out.println(flight);
 			System.out.println();
 		}
-		super.printSeparator();
+		this.printSeparator();
 	}
 	
 	private void printFlightCrewmember() {

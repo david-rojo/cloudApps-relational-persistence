@@ -1,4 +1,4 @@
-package com.cloudapps.relational_persistence.dbutils;
+package com.cloudapps.relational_persistence.service;
 
 /**
  * 

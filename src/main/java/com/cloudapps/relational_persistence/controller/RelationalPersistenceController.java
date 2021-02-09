@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
 
-import com.cloudapps.relational_persistence.dbutils.DatabaseInfoPrinter;
-import com.cloudapps.relational_persistence.dbutils.DatabaseLoader;
-import com.cloudapps.relational_persistence.dbutils.DatabaseQueryPrinter;
+import com.cloudapps.relational_persistence.service.DatabaseInfoPrinter;
+import com.cloudapps.relational_persistence.service.DatabaseLoader;
+import com.cloudapps.relational_persistence.service.DatabaseQueryPrinter;
 
 /**
  * 

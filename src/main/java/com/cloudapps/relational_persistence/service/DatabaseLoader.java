@@ -1,4 +1,4 @@
-package com.cloudapps.relational_persistence.dbutils;
+package com.cloudapps.relational_persistence.service;
 
 import static com.cloudapps.relational_persistence.configuration.Constants.DATE_FORMAT;
 
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.cloudapps.relational_persistence.model.Airplane;
 import com.cloudapps.relational_persistence.model.Airport;
@@ -30,7 +30,7 @@ import com.cloudapps.relational_persistence.repository.RevisionRepository;
  *
  */
 
-@Component
+@Service
 public class DatabaseLoader {
 
 	@Autowired

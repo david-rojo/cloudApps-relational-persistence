@@ -1,11 +1,11 @@
-package com.cloudapps.relational_persistence.dbutils;
+package com.cloudapps.relational_persistence.service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.cloudapps.relational_persistence.dto.DepartureCitiesAndDateFromEmployeeDTO;
 import com.cloudapps.relational_persistence.dto.FlightStatisticsFromCrewmemberDTO;
@@ -21,7 +21,7 @@ import com.cloudapps.relational_persistence.repository.MechanicRepository;
  *
  */
 
-@Component
+@Service
 public class DatabaseQueryPrinter extends DatabasePrinter {
 
 	@Autowired
@@ -35,7 +35,7 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 	
 	public void print() {
 		
-		super.printTitle("REQUESTED QUERIES RESULT");
+		this.printTitle("REQUESTED QUERIES RESULT");
 		this.printQuery1();
 		this.printQuery2();
 		this.printQuery3();
@@ -61,7 +61,7 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 			System.out.println(entry.getValue());
 			System.out.println();
 		}
-		super.printSeparator();		
+		this.printSeparator();		
 	}
 	
 	private void printQuery2() {
@@ -85,7 +85,7 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 			System.out.println(flightsByArrivalAndDateResult.get(i));
 			System.out.println();
 		}
-		super.printSeparator();		
+		this.printSeparator();		
 	}
 	
 	private void printQuery3() {
@@ -106,7 +106,7 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 			System.out.println(departureCitiesAndDateFromEmployeeResult.get(i));
 			System.out.println();
 		}
-		super.printSeparator();
+		this.printSeparator();
 		
 	}
 	
