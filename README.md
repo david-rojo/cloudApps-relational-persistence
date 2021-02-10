@@ -27,6 +27,13 @@ Or you can just execute the provided [start-mysql-container.sh](start-mysql-cont
 $ ./start-mysql-container.sh
 ```
 
+If the application is executed many times is needed to drop the database and create it at the end of each execution:
+
+```
+drop database test;
+create database test;
+```
+
 Once MySQL instance is up and running, to show the database stored information and the result of the requested queries execute:
 
 ```
