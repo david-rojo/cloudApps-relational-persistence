@@ -18,7 +18,7 @@ services:
     networks:
       - persistence
   db-mongodb:
-    image: mongo:4.4.2-bionic
+    image: mongo:4.4.3
     expose: 
       - 27017
     ports:
