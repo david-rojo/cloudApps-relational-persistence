@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  db-mysql:
+    image: mysql/mysql-server:8.0.23
+    expose: 
+      - 3306
+    environment:
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=test
+    ports:
+      - "3306:3306"
+    hostname: db-mysql
+    container_name: db-mysql
+    stdin_open: true
+    tty: true
+    networks:
+      - persistence
+  db-mongodb:
+    image: mongo:4.4.2-bionic
+    expose: 
+      - 27017
+    ports:
+      - "27017:27017"
+    hostname: db-mongodb
+    container_name: db-mongodb
+    stdin_open: true
+    tty: true
+    networks:
+      - persistence
+
+networks:
+  persistence:
+    driver: bridge 
