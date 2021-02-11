@@ -15,16 +15,23 @@ Notes:
 
 ## Deployment
 
-Before deploy the application, is needed to has an available MySQL database, the most easy way is with [docker](https://www.docker.com/) executing the following command:
+Before deploy the application, is needed to has available a MySQL and a mongoDb databases, the most easy way is with [docker](https://www.docker.com/) executing the following commands:
 
 ```
-$ docker run --rm -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=test -p 3306:3306 -d --name relational-persistence mysql/mysql-server:8.0.23
+$ docker run --rm -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=test -p 3306:3306 -d --name db-mysql mysql/mysql-server:8.0.23
+$ docker run --rm -p 27017:27017 -d --name db-mongodb mongo:4.4.3
 ```
 
-Or you can just execute the provided [start-mysql-container.sh](start-mysql-container.sh) script with the command:
+Or you can just execute the provided [docker-compose.yml](docker-compose.yml) file with the command:
 
 ```
-$ ./start-mysql-container.sh
+$ docker-compose up -d
+```
+
+Load [Provincias.json](src/main/resources/Provincias.json) provided data in mongoDb database with the command:
+
+```
+$ mongoimport --host localhost:27017 --db test --collection provincia --file src/main/resources/Provincias.json
 ```
 
 If the application is executed many times is needed to drop the database and create it at the end of each execution:
@@ -34,7 +41,7 @@ drop database test;
 create database test;
 ```
 
-Once MySQL instance is up and running, to show the database stored information and the result of the requested queries execute:
+Once MySQL and mongoDb instances are up and running, to show the databases stored information and the result of the requested queries execute:
 
 ```
 $ mvn spring-boot:run
