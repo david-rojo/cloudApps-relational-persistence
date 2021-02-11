@@ -34,7 +34,7 @@ Load [Provincias.json](src/main/resources/Provincias.json) provided data in mong
 $ mongoimport --host localhost:27017 --db test --collection provincia --file src/main/resources/Provincias.json
 ```
 
-If the application is executed many times is needed to drop the database and create it at the end of each execution:
+If the application is executed many times is needed to drop MySQL database and create it at the end of each execution:
 
 ```
 drop database test;
