@@ -1,8 +1,8 @@
-package com.cloudapps.relational_persistence.repository;
+package com.cloudapps.relational_persistence.repository.mysql;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.cloudapps.relational_persistence.model.Revision;
+import com.cloudapps.relational_persistence.model.mysql.Revision;
 
 /**
  * 

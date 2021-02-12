@@ -5,20 +5,20 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cloudapps.relational_persistence.model.Airplane;
-import com.cloudapps.relational_persistence.model.Airport;
-import com.cloudapps.relational_persistence.model.Crewmember;
-import com.cloudapps.relational_persistence.model.Flight;
-import com.cloudapps.relational_persistence.model.FlightCrewmember;
-import com.cloudapps.relational_persistence.model.Mechanic;
-import com.cloudapps.relational_persistence.model.Revision;
-import com.cloudapps.relational_persistence.repository.AiportRepository;
-import com.cloudapps.relational_persistence.repository.AirplaneRepository;
-import com.cloudapps.relational_persistence.repository.CrewmemberRepository;
-import com.cloudapps.relational_persistence.repository.FlightCrewmemberRepository;
-import com.cloudapps.relational_persistence.repository.FlightRepository;
-import com.cloudapps.relational_persistence.repository.MechanicRepository;
-import com.cloudapps.relational_persistence.repository.RevisionRepository;
+import com.cloudapps.relational_persistence.model.mysql.Airplane;
+import com.cloudapps.relational_persistence.model.mysql.Airport;
+import com.cloudapps.relational_persistence.model.mysql.Crewmember;
+import com.cloudapps.relational_persistence.model.mysql.Flight;
+import com.cloudapps.relational_persistence.model.mysql.FlightCrewmember;
+import com.cloudapps.relational_persistence.model.mysql.Mechanic;
+import com.cloudapps.relational_persistence.model.mysql.Revision;
+import com.cloudapps.relational_persistence.repository.mysql.AiportRepository;
+import com.cloudapps.relational_persistence.repository.mysql.AirplaneRepository;
+import com.cloudapps.relational_persistence.repository.mysql.CrewmemberRepository;
+import com.cloudapps.relational_persistence.repository.mysql.FlightCrewmemberRepository;
+import com.cloudapps.relational_persistence.repository.mysql.FlightRepository;
+import com.cloudapps.relational_persistence.repository.mysql.MechanicRepository;
+import com.cloudapps.relational_persistence.repository.mysql.RevisionRepository;
 
 /**
  * 
@@ -27,7 +27,7 @@ import com.cloudapps.relational_persistence.repository.RevisionRepository;
  */
 
 @Service
-public class DatabaseInfoPrinter extends DatabasePrinter {  
+public class DatabaseMySQLInfoPrinter extends DatabasePrinter {  
 	
 	@Autowired
 	private AiportRepository airportRepository;
@@ -53,7 +53,7 @@ public class DatabaseInfoPrinter extends DatabasePrinter {
 	public void print() {
 
 		this.printLogo();
-		this.printTitle("INFORMATION STORED IN DB");
+		this.printTitle("INFORMATION STORED IN MYSQL DB");
 		this.printAirport();
 		this.printAirplane();
 		this.printMechanic();

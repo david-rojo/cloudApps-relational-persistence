@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Controller;
 
-import com.cloudapps.relational_persistence.service.DatabaseInfoPrinter;
+import com.cloudapps.relational_persistence.service.DatabaseMongoQueryPrinter;
+import com.cloudapps.relational_persistence.service.DatabaseMySQLInfoPrinter;
 //import com.cloudapps.relational_persistence.service.DatabaseLoader;
-import com.cloudapps.relational_persistence.service.DatabaseQueryPrinter;
+import com.cloudapps.relational_persistence.service.DatabaseMySQLQueryPrinter;
 
 /**
  * 
@@ -20,22 +21,29 @@ import com.cloudapps.relational_persistence.service.DatabaseQueryPrinter;
 public class RelationalPersistenceController implements CommandLineRunner {
 
 //	@Autowired
-//	private DatabaseLoader databaseLoader;
+//	private DatabaseMYSQLLoader databaseMySQLLoader;
 	
 	@Autowired
-	private DatabaseInfoPrinter databaseInfoPrinter;
+	private DatabaseMySQLInfoPrinter databaseMySQLInfoPrinter;
 	
 	@Autowired
-	private DatabaseQueryPrinter databaseQueryPrinter;
-
+	private DatabaseMySQLQueryPrinter databaseMySQLQueryPrinter;
+	
+	@Autowired
+	private DatabaseMongoQueryPrinter databaseMongoQueryPrinter;
+	
 	@Override
 	public void run(String... args) throws ParseException  {
 
 		//Data loading disabled, this process is doing now using FlyWay
 		//databaseLoader.load();		
 		
-		databaseInfoPrinter.print();
-		databaseQueryPrinter.print();
+		//Print info
+		databaseMySQLInfoPrinter.print();
+		
+		//Print queries
+		databaseMySQLQueryPrinter.print();
+		databaseMongoQueryPrinter.print();
 	}	
 
 }

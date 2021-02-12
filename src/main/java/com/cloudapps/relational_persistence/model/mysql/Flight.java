@@ -1,4 +1,4 @@
-package com.cloudapps.relational_persistence.model;
+package com.cloudapps.relational_persistence.model.mysql;
 
 import static com.cloudapps.relational_persistence.configuration.Constants.DATE_FORMAT;
 

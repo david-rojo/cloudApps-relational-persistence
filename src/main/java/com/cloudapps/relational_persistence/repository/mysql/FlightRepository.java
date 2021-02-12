@@ -1,4 +1,4 @@
-package com.cloudapps.relational_persistence.repository;
+package com.cloudapps.relational_persistence.repository.mysql;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.cloudapps.relational_persistence.dto.FlightsByArrivalAndDateDTO;
-import com.cloudapps.relational_persistence.model.Flight;
+import com.cloudapps.relational_persistence.model.mysql.Flight;
 
 /**
  * 

@@ -1,4 +1,4 @@
-package com.cloudapps.relational_persistence.model;
+package com.cloudapps.relational_persistence.model.mysql;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

@@ -11,9 +11,9 @@ import com.cloudapps.relational_persistence.dto.DepartureCitiesAndDateFromEmploy
 import com.cloudapps.relational_persistence.dto.FlightStatisticsFromCrewmemberDTO;
 import com.cloudapps.relational_persistence.dto.FlightsByArrivalAndDateDTO;
 import com.cloudapps.relational_persistence.dto.MechanicPerAirplaneDTO;
-import com.cloudapps.relational_persistence.repository.CrewmemberRepository;
-import com.cloudapps.relational_persistence.repository.FlightRepository;
-import com.cloudapps.relational_persistence.repository.MechanicRepository;
+import com.cloudapps.relational_persistence.repository.mysql.CrewmemberRepository;
+import com.cloudapps.relational_persistence.repository.mysql.FlightRepository;
+import com.cloudapps.relational_persistence.repository.mysql.MechanicRepository;
 
 /**
  * 
@@ -22,7 +22,7 @@ import com.cloudapps.relational_persistence.repository.MechanicRepository;
  */
 
 @Service
-public class DatabaseQueryPrinter extends DatabasePrinter {
+public class DatabaseMySQLQueryPrinter extends DatabasePrinter {
 
 	@Autowired
 	private CrewmemberRepository crewmemberRepository;
@@ -35,7 +35,7 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 	
 	public void print() {
 		
-		this.printTitle("REQUESTED QUERIES RESULT");
+		this.printTitle("REQUESTED MYSQL QUERIES RESULT");
 		this.printQuery1();
 		this.printQuery2();
 		this.printQuery3();
@@ -130,9 +130,9 @@ public class DatabaseQueryPrinter extends DatabasePrinter {
 	private void printQueryTitle(int order) {
 
 		System.out.println();
-		System.out.println(" ---------");
-		System.out.println("| QUERY " + order + " |");
-		System.out.println(" ---------");
+		System.out.println(" ---------------");
+		System.out.println("| MYSQL QUERY " + order + " |");
+		System.out.println(" ---------------");
 		System.out.println();
 	}
 	

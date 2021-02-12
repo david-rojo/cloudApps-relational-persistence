@@ -1,4 +1,4 @@
-package com.cloudapps.relational_persistence.model;
+package com.cloudapps.relational_persistence.model.mysql;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.cloudapps.relational_persistence.repository;
+package com.cloudapps.relational_persistence.repository.mysql;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.cloudapps.relational_persistence.dto.MechanicPerAirplaneDTO;
-import com.cloudapps.relational_persistence.model.Mechanic;
+import com.cloudapps.relational_persistence.model.mysql.Mechanic;
 
 /**
  * 
