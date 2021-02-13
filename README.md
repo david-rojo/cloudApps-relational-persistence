@@ -34,6 +34,12 @@ Load [Provincias.json](src/main/resources/Provincias.json) provided data in mong
 $ mongoimport --host localhost:27017 --db test --collection provincia --file src/main/resources/Provincias.json
 ```
 
+Or you can just execute the provided [import-mongodb.sh](import-mongodb.sh) script with the command:
+
+```
+$ ./import-mongodb.sh
+```
+
 If the application is executed many times is needed to drop MySQL database and create it at the end of each execution:
 
 ```
