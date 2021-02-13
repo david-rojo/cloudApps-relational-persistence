@@ -11,8 +11,8 @@ import com.cloudapps.relational_persistence.model.mongo.Provincia;
 public interface ProvinciasRepository extends MongoRepository<Provincia, String> {
 
 	@Aggregation(pipeline= {
-			"{$group:{_id: '$CA','suma': { '$sum': 1 }}}",
-			"{$project:{'_id':0,'comunidad':'$_id', 'provincias':'$suma'}}"})
+			"{$sortByCount:'$CA'}",
+			"{$project:{'_id':0,'comunidad':'$_id', 'provincias':'$count'}}"})
 	List<GroupByComunidadAndCountDTO> groupByComunidadAndCountProvincias(); 
 	
 }
