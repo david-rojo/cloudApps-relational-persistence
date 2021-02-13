@@ -7,10 +7,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cloudapps.relational_persistence.dto.DepartureCitiesAndDateFromEmployeeDTO;
-import com.cloudapps.relational_persistence.dto.FlightStatisticsFromCrewmemberDTO;
-import com.cloudapps.relational_persistence.dto.FlightsByArrivalAndDateDTO;
-import com.cloudapps.relational_persistence.dto.MechanicPerAirplaneDTO;
+import com.cloudapps.relational_persistence.dto.mysql.DepartureCitiesAndDateFromEmployeeDTO;
+import com.cloudapps.relational_persistence.dto.mysql.FlightStatisticsFromCrewmemberDTO;
+import com.cloudapps.relational_persistence.dto.mysql.FlightsByArrivalAndDateDTO;
+import com.cloudapps.relational_persistence.dto.mysql.MechanicPerAirplaneDTO;
 import com.cloudapps.relational_persistence.repository.mysql.CrewmemberRepository;
 import com.cloudapps.relational_persistence.repository.mysql.FlightRepository;
 import com.cloudapps.relational_persistence.repository.mysql.MechanicRepository;

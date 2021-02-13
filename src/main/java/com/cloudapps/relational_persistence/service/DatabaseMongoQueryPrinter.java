@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cloudapps.relational_persistence.dto.mongo.GroupByComunidadAndCountDTO;
 import com.cloudapps.relational_persistence.model.mongo.Provincia;
 import com.cloudapps.relational_persistence.repository.mongo.ProvinciasRepository;
 
@@ -18,6 +19,7 @@ public class DatabaseMongoQueryPrinter extends DatabasePrinter {
 		
 		this.printTitle("REQUESTED MONGO QUERIES RESULT");
 		this.printProvincias();
+		this.printProvinciasPorComunidad();
 	}
 
 	private void printProvincias() {
@@ -29,6 +31,20 @@ public class DatabaseMongoQueryPrinter extends DatabasePrinter {
 		this.printResultTitle(provincias.size());
 		for (Provincia provincia : provincias) {
 			System.out.println(provincia);
+			System.out.println();
+		}
+		this.printSeparator();
+	}
+	
+	private void printProvinciasPorComunidad() {
+		
+		this.printQueryTitle(2);
+		this.printQueryDescription("Listado mostrando, para cada comunidad autónoma, su número de provincias.");
+
+		List<GroupByComunidadAndCountDTO> comunidadesList = provinciasRepository.groupByComunidadAndCountProvincias();
+		this.printResultTitle(comunidadesList.size());
+		for (GroupByComunidadAndCountDTO comunidad : comunidadesList) {
+			System.out.println(comunidad);
 			System.out.println();
 		}
 		this.printSeparator();

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.cloudapps.relational_persistence.dto.FlightsByArrivalAndDateDTO;
+import com.cloudapps.relational_persistence.dto.mysql.FlightsByArrivalAndDateDTO;
 import com.cloudapps.relational_persistence.model.mysql.Flight;
 
 /**
@@ -17,7 +17,7 @@ import com.cloudapps.relational_persistence.model.mysql.Flight;
 
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
-	@Query("SELECT new com.cloudapps.relational_persistence.dto.FlightsByArrivalAndDateDTO"
+	@Query("SELECT new com.cloudapps.relational_persistence.dto.mysql.FlightsByArrivalAndDateDTO"
 			+ "(f.flightCode, f.company, f.departure.city, f.departure.iataCode, f.arrival.city, f.arrival.iataCode,"
 			+ " f.departureDateTime, f.duration)" 
 			+ " FROM Flight f"

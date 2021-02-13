@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.cloudapps.relational_persistence.dto.DepartureCitiesAndDateFromEmployeeDTO;
-import com.cloudapps.relational_persistence.dto.FlightStatisticsFromCrewmemberDTO;
+import com.cloudapps.relational_persistence.dto.mysql.DepartureCitiesAndDateFromEmployeeDTO;
+import com.cloudapps.relational_persistence.dto.mysql.FlightStatisticsFromCrewmemberDTO;
 import com.cloudapps.relational_persistence.model.mysql.Crewmember;
 
 /**
@@ -18,7 +18,7 @@ import com.cloudapps.relational_persistence.model.mysql.Crewmember;
 
 public interface CrewmemberRepository extends JpaRepository<Crewmember, Long> {
 
-	@Query("SELECT new com.cloudapps.relational_persistence.dto.DepartureCitiesAndDateFromEmployeeDTO"
+	@Query("SELECT new com.cloudapps.relational_persistence.dto.mysql.DepartureCitiesAndDateFromEmployeeDTO"
 			+ "(c.name, c.surnames, a.city, a.iataCode, f.departureDateTime) " 
 			+ "FROM Crewmember c "
 			+ "JOIN FlightCrewmember fc ON c.id = fc.id.crewmemberId "
@@ -28,7 +28,7 @@ public interface CrewmemberRepository extends JpaRepository<Crewmember, Long> {
     List<DepartureCitiesAndDateFromEmployeeDTO> findDepartureCitiesAndDateByEmployeeCode(
     		@Param("employeeCode") String employeeCode);
 	
-	@Query("SELECT new com.cloudapps.relational_persistence.dto.FlightStatisticsFromCrewmemberDTO"
+	@Query("SELECT new com.cloudapps.relational_persistence.dto.mysql.FlightStatisticsFromCrewmemberDTO"
     		+ "(c.name, c.surnames, COUNT(f.id), SUM(f.duration))"
     		+ " FROM Crewmember c"
     		+ " JOIN FlightCrewmember fc ON c.id = fc.id.crewmemberId"
