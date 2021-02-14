@@ -67,7 +67,7 @@ CREATE TABLE `airport` (
 
 LOCK TABLES `airport` WRITE;
 /*!40000 ALTER TABLE `airport` DISABLE KEYS */;
-INSERT INTO `airport` VALUES (9,'Munich','Germany','MUC','Franz Josef Strauss International Aiport'),(10,'Doha','Qatar','DOH','Hamad International Airport'),(11,'Madrid','Spain','MAD','Adolfo Suárez Madrid-Barajas Airport'),(12,'Malé','Maldives','MLE','Malé International Airport'),(13,'Bangkok','Thailand','BKK','Suvarnabhumi Airport');
+INSERT INTO `airport` VALUES (9,'Munich','Germany','MUC','Franz Josef Strauss International Airport'),(10,'Doha','Qatar','DOH','Hamad International Airport'),(11,'Madrid','Spain','MAD','Adolfo Suárez Madrid-Barajas Airport'),(12,'Malé','Maldives','MLE','Malé International Airport'),(13,'Bangkok','Thailand','BKK','Suvarnabhumi Airport');
 /*!40000 ALTER TABLE `airport` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,16 +114,16 @@ CREATE TABLE `flight` (
   `duration` double NOT NULL,
   `flight_code` varchar(5) DEFAULT NULL,
   `airplane_id` bigint NOT NULL,
-  `arrival_aiport_id` bigint NOT NULL,
-  `departure_aiport_id` bigint NOT NULL,
+  `arrival_airport_id` bigint NOT NULL,
+  `departure_airport_id` bigint NOT NULL,
   PRIMARY KEY (`flight_id`),
   UNIQUE KEY `UK_j7j29duht4oswo8ylojjd5x1f` (`flight_code`),
   KEY `FKb8t4272gfgo1feyyidvscbjm0` (`airplane_id`),
-  KEY `FKkrj4hx7srh822cuxlgiuiavyd` (`arrival_aiport_id`),
-  KEY `FKm9em9ffkiex7wu2nktxv80sg9` (`departure_aiport_id`),
+  KEY `FKkrj4hx7srh822cuxlgiuiavyd` (`arrival_airport_id`),
+  KEY `FKm9em9ffkiex7wu2nktxv80sg9` (`departure_airport_id`),
   CONSTRAINT `FKb8t4272gfgo1feyyidvscbjm0` FOREIGN KEY (`airplane_id`) REFERENCES `airplane` (`airplane_id`),
-  CONSTRAINT `FKkrj4hx7srh822cuxlgiuiavyd` FOREIGN KEY (`arrival_aiport_id`) REFERENCES `airport` (`airport_id`),
-  CONSTRAINT `FKm9em9ffkiex7wu2nktxv80sg9` FOREIGN KEY (`departure_aiport_id`) REFERENCES `airport` (`airport_id`)
+  CONSTRAINT `FKkrj4hx7srh822cuxlgiuiavyd` FOREIGN KEY (`arrival_airport_id`) REFERENCES `airport` (`airport_id`),
+  CONSTRAINT `FKm9em9ffkiex7wu2nktxv80sg9` FOREIGN KEY (`departure_airport_id`) REFERENCES `airport` (`airport_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -265,14 +265,14 @@ CREATE TABLE `revision` (
   `start_date` datetime(6) DEFAULT NULL,
   `employee_id` bigint NOT NULL,
   `airplane_id` bigint NOT NULL,
-  `aiport_id` bigint NOT NULL,
+  `airport_id` bigint NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKb2svmctq1fcm3yl5mjv1y5ylp` (`employee_id`),
   KEY `FKhvmxyy9yqdnjvhdd078mi146a` (`airplane_id`),
-  KEY `FKrb37eisqmcx75fr60v1je6vmo` (`aiport_id`),
+  KEY `FKrb37eisqmcx75fr60v1je6vmo` (`airport_id`),
   CONSTRAINT `FKb2svmctq1fcm3yl5mjv1y5ylp` FOREIGN KEY (`employee_id`) REFERENCES `mechanic` (`employee_id`),
   CONSTRAINT `FKhvmxyy9yqdnjvhdd078mi146a` FOREIGN KEY (`airplane_id`) REFERENCES `airplane` (`airplane_id`),
-  CONSTRAINT `FKrb37eisqmcx75fr60v1je6vmo` FOREIGN KEY (`aiport_id`) REFERENCES `airport` (`airport_id`)
+  CONSTRAINT `FKrb37eisqmcx75fr60v1je6vmo` FOREIGN KEY (`airport_id`) REFERENCES `airport` (`airport_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
