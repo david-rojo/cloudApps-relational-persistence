@@ -1,3 +1,5 @@
+/* Modify flight table and insert json data, the id of each employee of the crew */
+ 
 ALTER TABLE flight 
 ADD crew_json JSON NOT NULL;
 
@@ -7,7 +9,11 @@ SET f.crew_json = (
     	JSON_OBJECT('employee_code', fc.crewmember_employee_id))
     FROM flight_crewmember fc
     WHERE fc.flight_flight_id = f.flight_id);
-    
+
+/* Modify airplane table and insert json data, the revisions of each airplane, in this case the information is copied from
+revision table, but excluding the airplane_id, because this information is available in the column airplane_id of airplane
+table */
+   
 ALTER TABLE airplane
 ADD revisions_json JSON NOT NULL;
  
