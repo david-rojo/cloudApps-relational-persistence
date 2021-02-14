@@ -44,6 +44,8 @@ public class Flight {
 	
 	private double duration;
 	
+	private String crewJson;
+	
 	@ManyToOne
 	@JoinColumn(name = "airplane_id", nullable=false)
 	private Airplane airplane;
@@ -143,6 +145,14 @@ public class Flight {
 
 	public void setCrew(List<FlightCrewmember> crew) {
 		this.crew = crew;
+	}
+
+	public String getCrewJson() {
+		return crewJson;
+	}
+
+	public void setCrewJson(String crewJson) {
+		this.crewJson = crewJson;
 	}
 
 	@Override

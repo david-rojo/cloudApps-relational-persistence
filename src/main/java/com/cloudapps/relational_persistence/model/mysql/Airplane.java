@@ -40,6 +40,8 @@ public class Airplane {
 	@OneToMany(mappedBy = "airplane")
 	private List<Flight> flights;
 	
+	private String revisionsJson;
+	
 	public Airplane() {}
 	
 	public Airplane(String registrationCode, String manufacturer, String model, long flownHours) {
@@ -104,6 +106,14 @@ public class Airplane {
 
 	public void setFlights(List<Flight> flights) {
 		this.flights = flights;
+	}
+
+	public String getRevisionsJson() {
+		return revisionsJson;
+	}
+
+	public void setRevisionsJson(String revisionsJson) {
+		this.revisionsJson = revisionsJson;
 	}
 
 	@Override

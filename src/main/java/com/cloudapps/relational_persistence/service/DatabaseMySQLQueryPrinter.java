@@ -36,37 +36,34 @@ public class DatabaseMySQLQueryPrinter extends DatabasePrinter {
 	public void print() {
 		
 		this.printTitle("REQUESTED MYSQL QUERIES RESULT");
-		this.printQuery1();
-		this.printQuery2();
-		this.printQuery3();
-		this.printQuery4();		
+		this.printQuery1Practice1();
+		this.printQuery2Practice1();
+		this.printQuery3Practice1();
+		this.printQuery4Practice1();		
+		this.printQuery1Practice2();
 	}
 
-	private void printQuery1() {
+	private void printQuery1Practice1() {
 
-		this.printQueryTitle(1);
+		this.printQueryTitle(1, 1);
 		this.printQueryDescription("Per each plane, show name and surnames of the mechanics responsible of its revisions.");
 
 		List<MechanicPerAirplaneDTO> mechanicsPerAirplaneResult = mechanicRepository.findMechanicsPerAirplane();
 		
-		//Delete repeated elements, because I don't have found the way to do it with only query
-		HashMap<String,MechanicPerAirplaneDTO> deleteRepeatedElements = new HashMap<>();
-		mechanicsPerAirplaneResult.forEach(element -> deleteRepeatedElements.put(element.getRegistrationCode(), element));
 		
-		this.printResultTitle(deleteRepeatedElements.size());
+		this.printResultTitle(mechanicsPerAirplaneResult.size());
 		
-		int i = 0;		
-		for (Map.Entry < String, MechanicPerAirplaneDTO > entry: deleteRepeatedElements.entrySet()) {
+		for (int i=0; i<mechanicsPerAirplaneResult.size(); i++) {
 			System.out.println("Element " + i + ":");
-			System.out.println(entry.getValue());
+			System.out.println(mechanicsPerAirplaneResult.get(i));
 			System.out.println();
 		}
 		this.printSeparator();		
 	}
 	
-	private void printQuery2() {
+	private void printQuery2Practice1() {
 
-		this.printQueryTitle(2);
+		this.printQueryTitle(1, 2);
 		this.printQueryDescription("Given the name of a city and a date, retrieve the flights that have landed (arrival) in "
 				+ "the airports of its city in this date, ordered by time.");
 		
@@ -88,9 +85,9 @@ public class DatabaseMySQLQueryPrinter extends DatabasePrinter {
 		this.printSeparator();		
 	}
 	
-	private void printQuery3() {
+	private void printQuery3Practice1() {
 		
-		this.printQueryTitle(3);
+		this.printQueryTitle(1, 3);
 		this.printQueryDescription("Given the employee code of a crew member, show his name, surnames and the cities"
 				+ " where he has taken off with the take off date.");
 		
@@ -110,9 +107,9 @@ public class DatabaseMySQLQueryPrinter extends DatabasePrinter {
 		
 	}
 	
-	private void printQuery4() {
+	private void printQuery4Practice1() {
 
-		this.printQueryTitle(4);
+		this.printQueryTitle(1, 4);
 		this.printQueryDescription("For each crew member, show his name and surnames with its total number of flights "
 				+ "and the sum of hours of these flights.");
 		
@@ -126,13 +123,31 @@ public class DatabaseMySQLQueryPrinter extends DatabasePrinter {
 		}
 
 	}
+
+	private void printQuery1Practice2() {
+
+		this.printQueryTitle(2, 1);
+		this.printQueryDescription("Practice 2 (JSON): Per each plane, show name and surnames of the mechanics responsible of its revisions.");
+
+		List<MechanicPerAirplaneDTO> mechanicsPerAirplaneResult = mechanicRepository.findMechanicsPerAirplanePractice2();
+		
+		
+		this.printResultTitle(mechanicsPerAirplaneResult.size());
+		
+		for (int i=0; i<mechanicsPerAirplaneResult.size(); i++) {
+			System.out.println("Element " + i + ":");
+			System.out.println(mechanicsPerAirplaneResult.get(i));
+			System.out.println();
+		}
+		this.printSeparator();		
+	}
 	
-	private void printQueryTitle(int order) {
+	private void printQueryTitle(int practice, int order) {
 
 		System.out.println();
-		System.out.println(" ---------------");
-		System.out.println("| MYSQL QUERY " + order + " |");
-		System.out.println(" ---------------");
+		System.out.println(" ----------------------------");
+		System.out.println("| PRACTICE " + practice + " - MYSQL QUERY " + order + " |");
+		System.out.println(" ----------------------------");
 		System.out.println();
 	}
 	
