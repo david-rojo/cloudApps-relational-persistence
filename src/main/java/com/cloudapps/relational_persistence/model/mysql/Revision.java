@@ -38,7 +38,7 @@ public class Revision {
 	private String description;
 	
 	@ManyToOne
-    @JoinColumn(name = "aiport_id", nullable=false)
+    @JoinColumn(name = "airport_id", nullable=false)
 	private Airport revisionAirport;
 	
 	@ManyToOne

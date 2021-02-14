@@ -18,7 +18,7 @@ import com.cloudapps.relational_persistence.model.mysql.Flight;
 import com.cloudapps.relational_persistence.model.mysql.FlightCrewmember;
 import com.cloudapps.relational_persistence.model.mysql.Mechanic;
 import com.cloudapps.relational_persistence.model.mysql.Revision;
-import com.cloudapps.relational_persistence.repository.mysql.AiportRepository;
+import com.cloudapps.relational_persistence.repository.mysql.AirportRepository;
 import com.cloudapps.relational_persistence.repository.mysql.AirplaneRepository;
 import com.cloudapps.relational_persistence.repository.mysql.EmployeeRepository;
 import com.cloudapps.relational_persistence.repository.mysql.FlightRepository;
@@ -37,7 +37,7 @@ public class DatabaseMySQLLoader {
 	private EmployeeRepository employeeRepository;
 
 	@Autowired
-	private AiportRepository airportRepository;
+	private AirportRepository airportRepository;
 
 	@Autowired
 	private AirplaneRepository airplaneRepository;
@@ -68,7 +68,7 @@ public class DatabaseMySQLLoader {
 		Airplane qatarAirplane1 = new Airplane("A7-AAA", "Airbus", "A380", 10000);
 		Airplane qatarAirplane2 = new Airplane("A7-BBB", "Airbus", "A350-1000", 8000);
 		
-		Airport lufthansaMainAirport = new Airport("MUC", "Franz Josef Strauss International Aiport", "Munich", "Germany");
+		Airport lufthansaMainAirport = new Airport("MUC", "Franz Josef Strauss International Airport", "Munich", "Germany");
 		Airport qatarMainAirport = new Airport("DOH", "Hamad International Airport", "Doha", "Qatar");
 		Airport madridAirport = new Airport("MAD", "Adolfo Suárez Madrid-Barajas Airport", "Madrid", "Spain");
 		Airport maleAirport = new Airport("MLE", "Malé International Airport", "Malé", "Maldives");

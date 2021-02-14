@@ -12,7 +12,7 @@ import com.cloudapps.relational_persistence.model.mysql.Flight;
 import com.cloudapps.relational_persistence.model.mysql.FlightCrewmember;
 import com.cloudapps.relational_persistence.model.mysql.Mechanic;
 import com.cloudapps.relational_persistence.model.mysql.Revision;
-import com.cloudapps.relational_persistence.repository.mysql.AiportRepository;
+import com.cloudapps.relational_persistence.repository.mysql.AirportRepository;
 import com.cloudapps.relational_persistence.repository.mysql.AirplaneRepository;
 import com.cloudapps.relational_persistence.repository.mysql.CrewmemberRepository;
 import com.cloudapps.relational_persistence.repository.mysql.FlightCrewmemberRepository;
@@ -30,7 +30,7 @@ import com.cloudapps.relational_persistence.repository.mysql.RevisionRepository;
 public class DatabaseMySQLInfoPrinter extends DatabasePrinter {  
 	
 	@Autowired
-	private AiportRepository airportRepository;
+	private AirportRepository airportRepository;
 	
 	@Autowired
 	private AirplaneRepository airplaneRepository;

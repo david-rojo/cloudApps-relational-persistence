@@ -49,11 +49,11 @@ public class Flight {
 	private Airplane airplane;
 	
 	@ManyToOne
-    @JoinColumn(name = "departure_aiport_id", nullable=false)
+    @JoinColumn(name = "departure_airport_id", nullable=false)
 	private Airport departure;
 	
 	@ManyToOne
-    @JoinColumn(name = "arrival_aiport_id", nullable=false)
+    @JoinColumn(name = "arrival_airport_id", nullable=false)
 	private Airport arrival;
 	
 	@OneToMany(mappedBy = "flight", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -154,8 +154,8 @@ public class Flight {
 			"\tdeparture_date_time: " + new SimpleDateFormat(DATE_FORMAT).format(departureDateTime) + "\n" +
 			"\tduration: " + duration + "\n" +
 			"\tairplane_id: " + airplane.getId() + "\n" +
-			"\tdeparture_aiport_id: " + departure.getId() + "\n" +
-			"\tarrival_aiport_id: " + arrival.getId();
+			"\tdeparture_airport_id: " + departure.getId() + "\n" +
+			"\tarrival_airport_id: " + arrival.getId();
 	}
 	
 }

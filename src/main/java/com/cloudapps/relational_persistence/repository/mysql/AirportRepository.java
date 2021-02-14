@@ -10,6 +10,6 @@ import com.cloudapps.relational_persistence.model.mysql.Airport;
  *
  */
 
-public interface AiportRepository extends JpaRepository<Airport, Long> {
+public interface AirportRepository extends JpaRepository<Airport, Long> {
 
 }
