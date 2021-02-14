@@ -1,8 +1,6 @@
 package com.cloudapps.relational_persistence.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +39,7 @@ public class DatabaseMySQLQueryPrinter extends DatabasePrinter {
 		this.printQuery3Practice1();
 		this.printQuery4Practice1();		
 		this.printQuery1Practice2();
+		this.printQuery2Practice2();
 	}
 
 	private void printQuery1Practice1() {
@@ -140,6 +139,22 @@ public class DatabaseMySQLQueryPrinter extends DatabasePrinter {
 			System.out.println();
 		}
 		this.printSeparator();		
+	}
+	
+	private void printQuery2Practice2() {
+
+		this.printQueryTitle(2, 2);
+		this.printQueryDescription("Practice 2 (JSON): For each crew member, show his name and surnames with its total number of flights "
+				+ "and the sum of hours of these flights.");
+		
+		List<FlightStatisticsFromCrewmemberDTO> flightStatisticsFromCrewmemberResult = crewmemberRepository
+				.findFlightStatisticsPractice2();
+		this.printResultTitle(flightStatisticsFromCrewmemberResult.size());
+		for (int i=0; i<flightStatisticsFromCrewmemberResult.size(); i++) {
+			System.out.println("Element " + i + ":");
+			System.out.println(flightStatisticsFromCrewmemberResult.get(i));
+			System.out.println();
+		}		
 	}
 	
 	private void printQueryTitle(int practice, int order) {
