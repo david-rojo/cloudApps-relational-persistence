@@ -9,9 +9,9 @@ Database will manage the following entities, with the specified data for each ot
 * *Airplane:* registration code (String type), manufacturer, model and flown hours.
 * *Airport:* IATA code (is a 3 letter value but a String type can be used), name, city and country.
 * *Crew member:* employee code (String type), name, surnames, position (pilot, co-pilot, flight attendant,...) and name of the company he works.
-* *Flight:* flight code, company, airplane of the flight, departure and arrival aiports, departure date and time, duration (hours as not integer value). Also is request to store the flight crew.
-* *Responsible Mechanic of the Revision:* employeeCode (String type), name, surnames, enterprise name, incoporation year to enterprise and previous formation (University degree, Master degre...)
-* *Revision:* revised airplane, start date, end date, number of hours spent, responsible mechanic of the revision, revision type (annual, monthly,...), description of done job and the aiport where revision took place.
+* *Flight:* flight code, company, airplane of the flight, departure and arrival airports, departure date and time, duration (hours as not integer value). Also is request to store the flight crew.
+* *Responsible Mechanic of the Revision:* employeeCode (String type), name, surnames, enterprise name, incorporation year to enterprise and previous formation (University degree, Master degre...)
+* *Revision:* revised airplane, start date, end date, number of hours spent, responsible mechanic of the revision, revision type (annual, monthly,...), description of done job and the airport where revision took place.
 
 ## Structure
 
