@@ -25,8 +25,9 @@ public interface MechanicRepository extends JpaRepository<Mechanic, Long> {
 	@Query("SELECT new com.cloudapps.relational_persistence.dto.mysql.MechanicPerAirplaneDTO" 
 			+ "(a.registrationCode, m.name, m.surnames)" 
 			+ "FROM Mechanic m "
-			+ "JOIN Airplane a ON FUNCTION('JSON_CONTAINS',"
-			+ "FUNCTION('JSON_EXTRACT', a.revisionsJson, '$[*].employee_id'),"
-			+ "CONVERT(m.id, JSON)) = 1")
+			+ "JOIN Airplane a ON FUNCTION("
+				+ "'JSON_CONTAINS',"
+				+ "FUNCTION('JSON_EXTRACT', a.revisionsJson, '$[*].employee_id'),"
+				+ "CONVERT(m.id, JSON)) = 1")
     List<MechanicPerAirplaneDTO> findMechanicsPerAirplaneByJSON();
 }
