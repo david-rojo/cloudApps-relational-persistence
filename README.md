@@ -1,8 +1,8 @@
-# Relational Persistence
+# Practice 2: Not Relational Persistence and Evolution
 
-This is a Java 8 project that implements the following [scenario](doc/scenario.md). All the information is stored in a [MySQL](https://www.mysql.com/) database using SpringData to manage it.
+This is a Java 8 project that implements the following [scenario](doc/scenario.md). All the information is stored in a [MySQL](https://www.mysql.com/) and a [mongoDB](https://www.mongodb.com/) databases using SpringData to manage it.
 
-## Database diagram
+## MySQL Database updated diagram
 
 ![DB DIAGRAM](doc/img/diagram.jpg)
 
