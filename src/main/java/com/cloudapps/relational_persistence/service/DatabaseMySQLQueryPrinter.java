@@ -128,7 +128,7 @@ public class DatabaseMySQLQueryPrinter extends DatabasePrinter {
 		this.printQueryTitle(2, 1);
 		this.printQueryDescription("Practice 2 (JSON): Per each plane, show name and surnames of the mechanics responsible of its revisions.");
 
-		List<MechanicPerAirplaneDTO> mechanicsPerAirplaneResult = mechanicRepository.findMechanicsPerAirplanePractice2();
+		List<MechanicPerAirplaneDTO> mechanicsPerAirplaneResult = mechanicRepository.findMechanicsPerAirplaneByJSON();
 		
 		
 		this.printResultTitle(mechanicsPerAirplaneResult.size());
@@ -148,7 +148,7 @@ public class DatabaseMySQLQueryPrinter extends DatabasePrinter {
 				+ "and the sum of hours of these flights.");
 		
 		List<FlightStatisticsFromCrewmemberDTO> flightStatisticsFromCrewmemberResult = crewmemberRepository
-				.findFlightStatisticsPractice2();
+				.findFlightStatisticsByJSON();
 		this.printResultTitle(flightStatisticsFromCrewmemberResult.size());
 		for (int i=0; i<flightStatisticsFromCrewmemberResult.size(); i++) {
 			System.out.println("Element " + i + ":");

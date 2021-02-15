@@ -40,9 +40,9 @@ public interface CrewmemberRepository extends JpaRepository<Crewmember, Long> {
     		+ "(c.name, c.surnames, COUNT(f.id), SUM(f.duration))"
     		+ " FROM Crewmember c"
     		+ " JOIN Flight f ON FUNCTION('JSON_CONTAINS',"
-    		+ " FUNCTION('JSON_EXTRACT', f.crewJson ,'$[*].\"employee_code\"'),"
-    		+ " FUNCTION('CONVERT', c.id, JSON)) = 1"
+    		+ " FUNCTION('JSON_EXTRACT', f.crewJson ,'$[*].employee_code'),"
+    		+ " CONVERT(c.id, JSON)) = 1"
     		+ " GROUP BY c.name, c.surnames")
-    List<FlightStatisticsFromCrewmemberDTO> findFlightStatisticsPractice2();
+    List<FlightStatisticsFromCrewmemberDTO> findFlightStatisticsByJSON();
 
 }

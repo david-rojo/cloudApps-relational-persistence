@@ -26,7 +26,7 @@ public interface MechanicRepository extends JpaRepository<Mechanic, Long> {
 			+ "(a.registrationCode, m.name, m.surnames)" 
 			+ "FROM Mechanic m "
 			+ "JOIN Airplane a ON FUNCTION('JSON_CONTAINS',"
-			+ "FUNCTION('JSON_EXTRACT', a.revisionsJson, '$[*].\"employee_id\"'),"
-			+ "FUNCTION('CONVERT', m.id, JSON)) = 1")
-    List<MechanicPerAirplaneDTO> findMechanicsPerAirplanePractice2();
+			+ "FUNCTION('JSON_EXTRACT', a.revisionsJson, '$[*].employee_id'),"
+			+ "CONVERT(m.id, JSON)) = 1")
+    List<MechanicPerAirplaneDTO> findMechanicsPerAirplaneByJSON();
 }
