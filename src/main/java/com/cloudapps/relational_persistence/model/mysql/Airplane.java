@@ -123,7 +123,8 @@ public class Airplane {
 				"\tregistration_code: " + registrationCode + "\n" +
 				"\tmanufacturer: " + manufacturer + "\n" +
 				"\tmodel: " + model + "\n" +
-				"\tflown_hours: " + flownHours;
+				"\tflown_hours: " + flownHours + "\n" + 
+				"\trevisions_json: " + revisionsJson;
 	}
 
 }

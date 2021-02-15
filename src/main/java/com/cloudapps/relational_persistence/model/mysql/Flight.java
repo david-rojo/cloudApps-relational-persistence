@@ -165,7 +165,8 @@ public class Flight {
 			"\tduration: " + duration + "\n" +
 			"\tairplane_id: " + airplane.getId() + "\n" +
 			"\tdeparture_airport_id: " + departure.getId() + "\n" +
-			"\tarrival_airport_id: " + arrival.getId();
+			"\tarrival_airport_id: " + arrival.getId() + "\n" +
+			"\tcrew_json: " + crewJson;
 	}
 	
 }
