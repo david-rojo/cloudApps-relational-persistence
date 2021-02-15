@@ -40,13 +40,6 @@ Or you can just execute the provided [import-mongodb.sh](import-mongodb.sh) scri
 $ ./import-mongodb.sh
 ```
 
-If the application is executed many times is needed to drop MySQL database and create it at the end of each execution:
-
-```
-drop database test;
-create database test;
-```
-
 Once MySQL and mongoDb instances are up and running, to show the databases stored information and the result of the requested queries execute:
 
 ```
@@ -55,12 +48,12 @@ $ mvn spring-boot:run
 
 Notes:
 
-* *spring.jpa.hibernate.ddl-auto* property has as value ```create``` so every time that the application will be executed, the information will be stored in the information and it will be available once the execution will be finished. 
+* *spring.jpa.hibernate.ddl-auto* property has as value ```update``` so every time that the application will be executed, the information will be reloaded in the database and it will be available once the execution will be finished. 
 * **DTOs (Data Transfer Objects)** has been used to retrieve the result of the requested queries.
 * The starting point in order to understand the application is [RelationalPersistenceController](src/main/java/com/cloudapps/relational_persistence/controller/RelationalPersistenceController.java) class. It executes the main three parts of the application:
-  * Populate the database.
-  * Print database stored information.
-  * Execute requested queries and print their result.
+  * Print MySQL database stored information.
+  * Execute requested MySQL queries (practice 1 and practice 2) and print their result.
+  * Execute requested mongoDB queries and print their result.
 
 ## Author
 
