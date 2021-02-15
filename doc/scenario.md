@@ -1,4 +1,4 @@
-# Relational Persistence scenario
+# Relational Persistence scenario (pending to updated with P2 scenario)
 
 It is requested to implement the persistence layer for a airplane maintenance application. In particular, it will be taken in account airplanes, flights, crew members, airports, mechanics and the revisions done to each airplane.
 
