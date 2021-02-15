@@ -39,9 +39,10 @@ public interface CrewmemberRepository extends JpaRepository<Crewmember, Long> {
 	@Query("SELECT new com.cloudapps.relational_persistence.dto.mysql.FlightStatisticsFromCrewmemberDTO"
     		+ "(c.name, c.surnames, COUNT(f.id), SUM(f.duration))"
     		+ " FROM Crewmember c"
-    		+ " JOIN Flight f ON FUNCTION('JSON_CONTAINS',"
-    		+ " FUNCTION('JSON_EXTRACT', f.crewJson ,'$[*].employee_code'),"
-    		+ " CONVERT(c.id, JSON)) = 1"
+    		+ " JOIN Flight f ON FUNCTION("
+    			+ "'JSON_CONTAINS',"
+    			+ " FUNCTION('JSON_EXTRACT', f.crewJson ,'$[*].employee_code'),"
+    			+ " CONVERT(c.id, JSON)) = 1"
     		+ " GROUP BY c.name, c.surnames")
     List<FlightStatisticsFromCrewmemberDTO> findFlightStatisticsByJSON();
 
